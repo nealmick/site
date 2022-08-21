@@ -1,0 +1,17 @@
+{% extends "predict/base.html"%}
+{% load crispy_forms_tags %}
+{% block content%}
+<body style="background-color:#383838;">
+
+<div class='content-section col-md-6'>
+  <body>
+
+    <h1>Sorry we are not registering new users currently.</h1>
+    <div class="boder-top pt-3">
+      <small class="text-muted">
+        Already Have An Account?<a class="ml-2" href="{% url 'login' %}">Sign In</a>
+      </small>
+    </div>
+  </body>
+</div>
+{% endblock content%}
