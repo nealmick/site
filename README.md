@@ -2,7 +2,7 @@
  
 # This is the repo for my personal website nealmick.com
 
-The site is built using the Django library and includes several personal projects such as a rubiks cube solver, a chess engine, and prediction model neural network for NBA games, aswell as an about page.
+The site is built using the Django library and includes several personal projects such as a rubiks cube solver, a chess engine, and prediction neural network for NBA games, aswell as an about page.
 
 #### There are several django apps:
 
