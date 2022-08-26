@@ -7,7 +7,7 @@ The site is built using the Django library and includes several personal project
 #### There are several django apps:
 
 1. mysite - main django app
-2. cube - most of the code for home page, about and ofcourse cube
+2. cube - most of the code for home page and about
 3. etc - home page for nba predictions and other etc pages
 4. predict - logic for nba predictons
 5. users - handles all the users for nba
