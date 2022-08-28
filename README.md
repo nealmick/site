@@ -14,7 +14,9 @@ The site is built using the Django library and includes several personal project
 5. users - handles all the users for nba
 
 This site contains an older version of NBA project, for update check out:
+
 https://github.com/nealmick/bb
+
 http://njm.rocks:8000/login/
 
 My website:
