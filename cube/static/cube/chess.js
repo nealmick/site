@@ -5,10 +5,15 @@ positionStr="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 
 
 var board = null
+
 var game = new Chess()
+let history = [];
 var $status = $('#status')
 var $fen = $('#fen')
 var $pgn = $('#pgn')
+
+var requesting = false
+var back = false
 
 function onDragStart (source, piece, position, orientation) {
   // do not pick up pieces if the game is over
@@ -22,6 +27,7 @@ function onDragStart (source, piece, position, orientation) {
 
 function onDrop (source, target) {
   // see if the move is legal
+  
   var move = game.move({
     from: source,
     to: target,
@@ -30,25 +36,25 @@ function onDrop (source, target) {
 
   // illegal move
   if (move === null){
-    console.log('move is bad')
+    console.log(game.fen())
     return 'snapback'
 
   }
   //if move was legal should be able to call new functions
 
-  console.log('moved')
-  console.log(board.position())
-  console.log('FEN string:')
   f = board.fen()
-  console.log(f)
+  
+
+  console.log(history)
+
   //fasdf = requestMove('f','f',board.fen())
   fasdf = requestMove2(f,source,target)
-
   updateStatus()
 
 }
 
 function requestMove2(fen,source,target){
+  requesting=true
   let fasdf = ''
   $.ajax(
     {
@@ -63,18 +69,18 @@ function requestMove2(fen,source,target){
           fen: String(board.fen())
         },
         success: function(asdf) {
-          let fasdf = asdf.asdf
+            let fasdf = asdf.asdf
 
-
-          console.log('response:',fasdf)
-          game.load(fasdf)
-          //board.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
-          board.position(game.fen())
-          updateStatus ()
-          
-
+            history.push(fasdf)
+            console.log('response:',fasdf)
+            game.load(fasdf)
+            //board.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
+            board.position(game.fen())
+            updateStatus ()
+          requesting = false
       }
     })
+    
     return fasdf 
 
 }
@@ -132,31 +138,31 @@ var config = {
   onSnapEnd: onSnapEnd
 }
 board = Chessboard('myBoard', config)
-
+$(window).resize(board.resize)
 updateStatus()
   
-//board2.position(positionStr)
-
-
-
-
-function botMove(){
-
-  fasdf = requestMove('f','f',board.fen())
-
-  console.log('fasdf:',fasdf )
-  console.log(game.ascii())
-  updateStatus()
-  
-
+function moveBack(game){
+    if(requesting){
+      return game
+    }else{
+      board.position(history[history.length-2])
+      game.load(history[history.length-2])
+      history.pop();
+      updateStatus ()
+      back = true
+      return game
+  }
 }
 
 
 
 
 
+function newGame(){
+  location.reload();
 
 
+}
 
 
 
