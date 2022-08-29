@@ -1,7 +1,7 @@
 let camera, scene, renderer, raycaster, controls,cub3 ;
 
 
-//canvas
+//canvas123
 const canvas = document.querySelector('canvas.webgl')
 //const gui = new dat.GUI()
 const mouse = new THREE.Vector2();
