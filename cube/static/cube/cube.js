@@ -1,7 +1,7 @@
 let camera, scene, renderer, raycaster, controls,cub3 ;
 
 
-//canvas123
+//canvas
 const canvas = document.querySelector('canvas.webgl')
 //const gui = new dat.GUI()
 const mouse = new THREE.Vector2();
@@ -83,14 +83,12 @@ async function test(){
 
 }
 function s(){
-	console.log('test')
 	history = []
 	solve()
 	let h = history.slice();
 	revert()
 	history = h.slice();
 	forward()
-	console.log('done')
     
 
 }
@@ -120,7 +118,6 @@ async function testloop(){
 }
 
 async function finalSolve(){
-	console.log('almost done')
 	counter=0
 	while(cube[5][0][2]!='y'||counter<3){
 		counter++
@@ -206,7 +203,7 @@ function cornerFinalPosition(){
 		}
 	}
 
-	console.log("setNumber",setNum,counter)
+	//console.log("setNumber",setNum,counter)
 }
 function getColors4Solve(){
 	//5 3 -5 -1 5 -3 -5 1
@@ -371,7 +368,7 @@ function getColors1(foo,oof,v){
 			hits++
 		}
 	}
-	console.log(hits)
+	//console.log(hits)
 	return hits
 }
 
@@ -523,14 +520,14 @@ function bottomCross(){
 		cube = turn2(cube)
 		cube = turn2(cube)
 		cube = turn2(cube)
-		console.log(history.length)
+		//console.log(history.length)
 
 		if(counter=15){
 			break
 		}
 	}
 	if(cube[5][0][1]!='y'||cube[5][1][2]!='y'||cube[5][2][1]!='y'||cube[5][1][0]!='y'){
-		console.log('another111111111111111',history.length)
+		//console.log('another111111111111111',history.length)
 		bottomCross()
 	}
 
@@ -541,7 +538,7 @@ function bottomCross(){
 
 
 function middleSolve(){
-	console.log('middle time')
+	//console.log('middle time')
 	rb()
 	bo()
 	og()
@@ -575,7 +572,7 @@ function gr(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof==0){
 		counter=0
 		while(cube[4][2][1]!='g'||cube[1][0][1]!='r'){
@@ -607,7 +604,7 @@ function og(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof == 1){
 
 		if(foo==0&&v==0){
@@ -628,7 +625,7 @@ function og(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof==0){
 		counter=0
 		while(cube[3][2][1]!='o'||cube[4][0][1]!='g'){
@@ -661,7 +658,7 @@ function bo(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof == 1){
 
 		if(foo==0&&v==0){
@@ -682,7 +679,7 @@ function bo(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof==0){
 		counter=0
 		while(cube[2][2][1]!='b'||cube[3][0][1]!='o'){
@@ -716,7 +713,7 @@ function rb(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof == 1){
 
 		if(foo==0&&v==0){
@@ -737,7 +734,7 @@ function rb(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found at: ',foo,oof,v)
+	//console.log('found at: ',foo,oof,v)
 	if(oof==0){
 		counter=0
 		while(cube[1][2][1]!='r'||cube[2][0][1]!='b'){
@@ -854,7 +851,7 @@ function topCorners(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found corner at: ',foo,oof,v)
+	//console.log('found corner at: ',foo,oof,v)
 	offTop2(foo,oof,v)
 	backtop2(color1,color2)
 
@@ -865,7 +862,7 @@ function topCorners(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found corner at: ',foo,oof,v)
+	//console.log('found corner at: ',foo,oof,v)
 	offTop2(foo,oof,v)
 	backtop2(color1,color2)
 	//orange
@@ -875,7 +872,7 @@ function topCorners(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found corner at: ',foo,oof,v)
+	//console.log('found corner at: ',foo,oof,v)
 	offTop2(foo,oof,v)
 	backtop2(color1,color2)
 	
@@ -887,7 +884,7 @@ function topCorners(){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log('found corner at: ',foo,oof,v)
+	//console.log('found corner at: ',foo,oof,v)
 	offTop2(foo,oof,v)
 	backtop2(color1,color2)
 
@@ -1022,7 +1019,7 @@ function insertCorner1(){
 	}
 }
 function offTop2(foo,oof,v){
-	console.log('offtop2')
+	//console.log('offtop2')
 	if(oof==2){
 		if(foo==0&&v==0){
 			cube=turn4(cube)
@@ -1067,7 +1064,7 @@ function topCross(color){
 	foo = r[0]
 	oof = r[1]
 	v = r[2]
-	console.log(foo,oof,v)
+	//console.log(foo,oof,v)
 
 	if(oof==2){
 		offTop(foo,oof,v)
@@ -1121,9 +1118,9 @@ function correctBottom(){
 function backTop(foo,oof,v,color){
 	if (color=='FF0000'){//red
 		casdf = 0
-		console.log('asdf',casdf)
+		//console.log('asdf',casdf)
 		while(casdf <=5){
-			console.log(cube[1][1][0])
+			//console.log(cube[1][1][0])
 
 			casdf++
 			if(cube[1][1][0]=='r'&&cube[5][0][1]=='w'){
@@ -1153,11 +1150,11 @@ function backTop(foo,oof,v,color){
 	if (color=='FFA500'){//orange
 		casdf = 0
 		while(casdf <=5){
-			console.log(cube[1][1][0])
+			//console.log(cube[1][1][0])
 
 			casdf++
 			if(cube[3][1][0]=='o'&&cube[5][2][1]=='w'){
-				console.log('got it ')
+				//console.log('got it ')
 			}else{
 				cube=turn5(cube)
 			}
@@ -1390,12 +1387,12 @@ function getCord3(color1,color2){
 function bigger(){
 	stopLoop()
 	reset()
-	console.log('bigger')
+	//console.log('bigger')
 	x= x+1
 	y= y+1
 	cube = createCube(faces, x ,y)
 	printCube(cube)
-	console.log('reset')
+	//console.log('reset')
 	history = []
 	scene = new THREE.Scene();
 	cub3 = createCub3()
@@ -1407,12 +1404,12 @@ function smaller(){
 	stopLoop()
 	reset()
 
-	console.log('bigger')
+	//console.log('bigger')
 	x= x-1
 	y= y-1
 	cube = createCube(faces, x ,y)
 	printCube(cube)
-	console.log('reset')
+	//console.log('reset')
 	history = []
 	scene = new THREE.Scene();
 	cub3 = createCub3()
@@ -1427,7 +1424,7 @@ async function reset(){
 	//await sleep(300)ifreset messes up add bit of delay
 	cube = createCube(faces, x ,y)
 	printCube(cube)
-	console.log('reset')
+	//console.log('reset')
 	updateCub3(cube)
 	history = []
 
@@ -1781,7 +1778,7 @@ function onClick(event) {
 
 		const faceIndex = intersection.faceIndex;
 		const object = intersection.object;
-		console.log(intersects[0])
+		//console.log(intersects[0])
 		
 		object.geometry.faces[ faceIndex ].color.set(  0xff0000 );
 		object.geometry.faces[ faceIndex+1 ].color.set(  0xff0000 );
@@ -1807,13 +1804,13 @@ function animate() {
 //turn y horizontal
 
 function turnX(cube,input){
-	console.log('turning X----------------',input)
+	//console.log('turning X----------------',input)
 	let cloneCube = structuredClone(cube)
 
 	let counter = 0
-	console.log(input)
+	//console.log(input)
 	for(oof=x-1;oof>=0;oof--){
-		console.log(oof)
+		//console.log(oof)
 		cube[0][input][oof]=cloneCube[2][input][oof]
 		cube[4][x-1-input][oof]=cloneCube[0][input][counter]
 		cube[5][input][counter]=cloneCube[4][x-1-input][oof]
@@ -1832,7 +1829,7 @@ function turnX(cube,input){
 }
 
 function turnY(cube,input){
-	console.log('turning Y----------------',input)
+	//console.log('turning Y----------------',input)
 	let cloneCube = structuredClone(cube)
 	let counter = 0
 	for(oof=x-1;oof>=0;oof--){
@@ -1856,7 +1853,7 @@ function turnY(cube,input){
 //turn face 5
 function turn5(cube){
 
-	console.log('turning 5----------------')
+	//console.log('turning 5----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -1902,7 +1899,7 @@ function turn5(cube){
 
 //turn face 4
 function turn4(cube){
-	console.log('turning 4----------------')
+	//console.log('turning 4----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -1951,7 +1948,7 @@ function turn4(cube){
 
 //turn face 3
 function turn3(cube){
-	console.log('turning 3----------------')
+	//console.log('turning 3----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -1998,7 +1995,7 @@ function turn3(cube){
 
 //turn face 2
 function turn2(cube){
-	console.log('turning 2----------------')
+	//console.log('turning 2----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -2042,7 +2039,7 @@ function turn2(cube){
 
 //1
 function turn1(cube){
-	console.log('turning 1----------------')
+	//console.log('turning 1----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -2091,7 +2088,7 @@ function turn1(cube){
 //turn face 0 once clockwise
 function turn0(cube){
 
-	console.log('turning 0----------------')
+	//console.log('turning 0----------------')
 	let f = cube.length
 	let x = cube[0].length
 	let y = cube[0][0].length
@@ -2163,7 +2160,7 @@ function printCube(cube){
 			bigStr+=cube[5][oof][foo]
 		bigStr+='\n'
 	}
-	console.log(bigStr)
+	//console.log(bigStr)
 	document.getElementById("cube").innerText = bigStr
 }
 
@@ -2171,7 +2168,7 @@ function printCube(cube){
 function createCube(faces, x,y){
 
 	stat = ('x: '+x+'  y: '+y)
-	console.log(stat)
+	//console.log(stat)
 	document.getElementById("cubeStat").innerText = stat
 
 
@@ -2537,7 +2534,7 @@ document.onkeydown = function(e){
 
 
 async function shuffle(var1){
-	console.log('shuffle')
+	//console.log('shuffle')
 	for(randomMoveCounter = 0; randomMoveCounter<shuffleCount;randomMoveCounter++){
 		possible = 6+x-2+x-2
 		if(x==3){
