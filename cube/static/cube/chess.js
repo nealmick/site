@@ -77,7 +77,7 @@ function requestMove2(fen,source,target){
             
             
             
-            .push(fasdf)
+            histroy_.push(fasdf)
             console.log('response:',fasdf)
             game.load(fasdf)
             //board.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
