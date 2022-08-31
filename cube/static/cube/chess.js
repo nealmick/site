@@ -7,7 +7,7 @@ positionStr="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
 var board = null
 
 var game = new Chess()
-let history = [];
+let history_ = [];
 var $status = $('#status')
 var $fen = $('#fen')
 var $pgn = $('#pgn')
@@ -45,7 +45,7 @@ function onDrop (source, target) {
   f = board.fen()
   
 
-  console.log(history)
+  console.log(history_)
 
   //fasdf = requestMove('f','f',board.fen())
   fasdf = requestMove2(f,source,target)
@@ -71,7 +71,13 @@ function requestMove2(fen,source,target){
         success: function(asdf) {
             let fasdf = asdf.asdf
 
-            history.push(fasdf)
+            
+            
+            
+            
+            
+            
+            .push(fasdf)
             console.log('response:',fasdf)
             game.load(fasdf)
             //board.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
@@ -145,9 +151,9 @@ function moveBack(game){
     if(requesting){
       return game
     }else{
-      board.position(history[history.length-2])
-      game.load(history[history.length-2])
-      history.pop();
+      board.position(history_[history_.length-2])
+      game.load(history_[history_.length-2])
+      history_.pop();
       updateStatus ()
       back = true
       return game
