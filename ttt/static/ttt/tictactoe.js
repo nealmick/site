@@ -4,15 +4,12 @@
 console.log('tictactoe')
 
 
-//let x = 3;
-//let y = 3;
-
 let winner = '_'
 let board = [];
 
 let state = 1
 
-board =createBoard(board,3,3)
+board =createBoard(board,x,y)
 
 
 console.log(board)
