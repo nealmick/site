@@ -5,21 +5,21 @@ console.log('tictactoe')
 
 
 let winner = '_'
-let board = [];
+let board_ = [];
 
 let state = 1
 
-board =createBoard(board,x,y)
+board_ =createboard_(board_,x,y)
 
 
-console.log(board)
+console.log(board_)
 
 
 
 
     
 
-printBoard()
+printboard_()
 
 
 function restart(){
@@ -30,8 +30,8 @@ function restart(){
 
 
 
-function getMove(board){
-    let fasdf = prepareSend(board)
+function getMove(board_){
+    let fasdf = prepareSend(board_)
     state=2
     $.ajax(
       {
@@ -48,9 +48,9 @@ function getMove(board){
   
             
             //console.log('response:',res)
-            updateBoard(board,res)
-            printBoard()
-            updateView(board)
+            updateboard_(board_,res)
+            printboard_()
+            updateView(board_)
             if(rw=='x' || rw =='o'){
                 document.getElementById("winner").innerText = 'winner is: '+rw
                 winner = rw
@@ -62,7 +62,7 @@ function getMove(board){
 
             state = 1
 
-            //board.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
+            //board_.move(fasdf[0]+fasdf[1].toUpperCase()+'-'+ fasdf[2]+fasdf[3].toUpperCase() )
             
   
         }
@@ -74,12 +74,12 @@ function getMove(board){
 
 
 
-function updateView(board){
+function updateView(board_){
     count=1;
     for(foo=0;foo<x;foo++){
         for(oof=0;oof<y;oof++){
-            if(board[foo][oof]!='_'){
-                document.getElementById("box"+String(count)).innerText = board[foo][oof]
+            if(board_[foo][oof]!='_'){
+                document.getElementById("box"+String(count)).innerText = board_[foo][oof]
             }
             count++
 
@@ -89,30 +89,30 @@ function updateView(board){
 
 }
 
-function updateBoard(board,fasdf){
+function updateboard_(board_,fasdf){
 
     let counter = 0;
     for(foo=0;foo<x;foo++){
         for(oof=0;oof<y;oof++){
 
             if(fasdf[counter]!='_'){
-                board[foo][oof]=fasdf[counter]
+                board_[foo][oof]=fasdf[counter]
             }
             counter++
             
         }
     }
 
-    return board
+    return board_
 }
 
-function prepareSend(board){
+function prepareSend(board_){
     let sendString = '';
 
     for(foo=0;foo<x;foo++){
        
         for(oof=0;oof<y;oof++){
-            sendString+=board[foo][oof]
+            sendString+=board_[foo][oof]
         }
 
     }
@@ -126,13 +126,13 @@ function prepareSend(board){
 
 
 
-function printBoard(){
+function printboard_(){
     let pString = "";
     let bigString ="";
     for(foo=0;foo<x;foo++){
        
         for(oof=0;oof<y;oof++){
-            pString+=board[foo][oof]
+            pString+=board_[foo][oof]
         }
         bigString+=pString+'\n'
         pString = "";
@@ -140,92 +140,92 @@ function printBoard(){
     //console.log(bigString)
 }
 
-function createBoard(board,x,y){
+function createboard_(board_,x,y){
     
     for(foo=0;foo<x;foo++){
-        board.push([]);
+        board_.push([]);
         for(oof=0;oof<y;oof++){
-            board[foo].push('_')
+            board_[foo].push('_')
         }
     }
-    return board
+    return board_
 }
 
 
 function box1(){
-    if (board[0][0]=='_'&& winner=='_'&& state==1){
+    if (board_[0][0]=='_'&& winner=='_'&& state==1){
         document.getElementById("box1").innerText = 'x'
-        board[0][0]='x'
-        printBoard()
-        getMove(board)
+        board_[0][0]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 
 function box2(){
-    if (board[0][1]=='_'&& winner=='_'&& state==1){
+    if (board_[0][1]=='_'&& winner=='_'&& state==1){
       document.getElementById("box2").innerText = 'x'
-        board[0][1]='x'
-        printBoard()
-        getMove(board)
+        board_[0][1]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box3(){
-    if (board[0][2]=='_'&& winner=='_'&& state==1){
+    if (board_[0][2]=='_'&& winner=='_'&& state==1){
         document.getElementById("box3").innerText = 'x'
-        board[0][2]='x'
-        printBoard()
-        getMove(board)
+        board_[0][2]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box4(){
-    if (board[1][0]=='_'&& winner=='_'&& state==1){
+    if (board_[1][0]=='_'&& winner=='_'&& state==1){
         document.getElementById("box4").innerText = 'x'
-        board[1][0]='x'
-        printBoard()
-        getMove(board)
+        board_[1][0]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box5(){
-    if (board[1][1]=='_'&& winner=='_'&& state==1){
+    if (board_[1][1]=='_'&& winner=='_'&& state==1){
         document.getElementById("box5").innerText = 'x'
-        board[1][1]='x'
-        printBoard()
-        getMove(board)
+        board_[1][1]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box6(){
-    if (board[1][2]=='_'&& winner=='_'&& state==1){
+    if (board_[1][2]=='_'&& winner=='_'&& state==1){
 
         document.getElementById("box6").innerText = 'x'
-        board[1][2]='x'
-        printBoard()
-        getMove(board)
+        board_[1][2]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box7(){
-    if (board[2][0]=='_'&& winner=='_'&& state==1){
+    if (board_[2][0]=='_'&& winner=='_'&& state==1){
 
         document.getElementById("box7").innerText = 'x'
-        board[2][0]='x'
-        printBoard()
-        getMove(board)
+        board_[2][0]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box8(){
-    if (board[2][1]=='_'&& winner=='_'&& state==1){
+    if (board_[2][1]=='_'&& winner=='_'&& state==1){
 
         document.getElementById("box8").innerText = 'x'
-        board[2][1]='x'
-        printBoard()
-        getMove(board)
+        board_[2][1]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 function box9(){
-    if (board[2][2]=='_'&& winner=='_'&& state==1){
+    if (board_[2][2]=='_'&& winner=='_'&& state==1){
         document.getElementById("box9").innerText = 'x'
-        board[2][2]='x'
-        printBoard()
-        getMove(board)
+        board_[2][2]='x'
+        printboard_()
+        getMove(board_)
     }
 }
 
