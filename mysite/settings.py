@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ttt.apps.TttConfig',
     'crispy_forms',
     'predict.apps.PredictConfig',
     'users.apps.UsersConfig',####users
