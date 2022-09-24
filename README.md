@@ -13,7 +13,12 @@ The site is built using the Django library and includes several personal project
 4. predict - logic for nba predictons - go to http://njm.rocks:8000/login/
 5. users - handles all the users for nba
 
-
+```bash
+git clone github.com/nealmick/site
+cd site
+pip install -r requirements.txt
+python3 manage.py runserver
+```
 
 My website:
 
