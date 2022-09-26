@@ -14,7 +14,7 @@ The site is built using the Django library and includes several personal project
 5. users - handles all the users for nba
 
 ```bash
-git clone github.com/nealmick/site
+git clone https://github.com/nealmick/site
 cd site
 pip install -r requirements.txt
 python3 manage.py runserver
